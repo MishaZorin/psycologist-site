@@ -1,16 +1,14 @@
 import { useState, useEffect } from 'react'
-import { BrowserRouter, Routes, Route, NavLink, useParams, useNavigate } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, NavLink, useParams, useNavigate, useLocation } from 'react-router-dom'
 import userPhoto from './assets/177.jpg'
 import sofaPhoto from './assets/jpg_2000.jpg'
 
-type Tab = 'about' | 'articles' | 'howIWork' | 'contacts' | 'book'
-
-const TABS: { id: Tab; label: string; path: string }[] = [
-  { id: 'about', label: 'О себе', path: '/' },
-  { id: 'howIWork', label: 'Как работаю', path: '/how-i-work' },
-  { id: 'articles', label: 'Статьи', path: '/articles' },
-  { id: 'contacts', label: 'Контакты', path: '/contacts' },
-  { id: 'book', label: 'Записаться', path: '/book' },
+const NAV_ITEMS: { label: string; path: string }[] = [
+  { label: 'О себе', path: '/' },
+  { label: 'Как работаю', path: '/how-i-work' },
+  { label: 'Статьи', path: '/articles' },
+  { label: 'Контакты', path: '/contacts' },
+  { label: 'Записаться', path: '/book' },
 ]
 
 const articles = [
@@ -24,7 +22,7 @@ const articles = [
 
 Почему же мы теряем смысл жизни? По разным причинам.
 
-Святослав  Рерих  в книге  «Искусство и жизнь» писал: «В старину алхимики утверждали, что в основе их процессов лежит тайный огонь. Они утверждали, что он должен быть неугасимым, ровным, и что если он угаснет, то прекратятся все процессы, участвующие в формировании камня».
+Святослав  Рерих  в книге  \`Искусство и жизнь\` писал: \`В старину алхимики утверждали, что в основе их процессов лежит тайный огонь. Они утверждали, что он должен быть неугасимым, ровным, и что если он угаснет, то прекратятся все процессы, участвующие в формировании камня\`.
 
  Этот неугасимый огонь есть пламя веры и устремления.
 
@@ -44,7 +42,7 @@ const articles = [
 
 Почему же мы теряем смысл жизни? По разным причинам.
 
-Святослав  Рерих  в книге  «Искусство и жизнь» писал: «В старину алхимики утверждали, что в основе их процессов лежит тайный огонь. Они утверждали, что он должен быть неугасимым, ровным, и что если он угаснет, то прекратятся все процессы, участвующие в формировании камня».
+Святослав  Рерих  в книге  \`Искусство и жизнь\` писал: \`В старину алхимики утверждали, что в основе их процессов лежит тайный огонь. Они утверждали, что он должен быть неугасимым, ровным, и что если он угаснет, то прекратятся все процессы, участвующие в формировании камня\`.
 
  Этот неугасимый огонь есть пламя веры и устремления.
 
@@ -68,9 +66,9 @@ const articles = [
 
 Психоанализ помогает разобраться в себе с помощью другого. Но каким образом?
 
-Этот  другой  (психоаналитик) помогает понять ту часть самого себя, которая не совсем доступна для нас в  повседневной жизни. Она проявляет себя в фантазиях, мечтах, снах, в нашем восприятии, а также в наших поступках. Когда люди обращаются к психоаналитику, как правило, они не чувствуют полноты жизни. У них есть ощущение, что та жизнь, которую они живут, не удовлетворяет их, что возможна другая – более хороша жизнь. Мелани Кляйн в своей теории как раз говорила о том, что есть жизнь и ЖИЗНЬ.  Толстой пишет в романе «Война и мир»: «Пока есть жизнь, есть и счастье», но многие гоняются за ним и никак не могут его поймать.
+Этот  другой  (психоаналитик) помогает понять ту часть самого себя, которая не совсем доступна для нас в  повседневной жизни. Она проявляет себя в фантазиях, мечтах, снах, в нашем восприятии, а также в наших поступках. Когда люди обращаются к психоаналитику, как правило, они не чувствуют полноты жизни. У них есть ощущение, что та жизнь, которую они живут, не удовлетворяет их, что возможна другая – более хороша жизнь. Мелани Кляйн в своей теории как раз говорила о том, что есть жизнь и ЖИЗНЬ.  Толстой пишет в романе \`Война и мир\`: \`Пока есть жизнь, есть и счастье\`, но многие гоняются за ним и никак не могут его поймать.
 
-Психоанализ помогает прийти к ощущению себя, где жизнь раскрывается всеми своими красками, начинает приносить истинное удовольствие. Наш мозг устроен таким образом, что непрестанно ищет ответы на вопросы, которые ставит перед ним жизнь, но эти ответы мы ищем в той части «Я», которая нам доступна. Оказывается, что в нашем доступе  открывается лишь  часть нашего сознательного «Я».
+Психоанализ помогает прийти к ощущению себя, где жизнь раскрывается всеми своими красками, начинает приносить истинное удовольствие. Наш мозг устроен таким образом, что непрестанно ищет ответы на вопросы, которые ставит перед ним жизнь, но эти ответы мы ищем в той части \`Я\`, которая нам доступна. Оказывается, что в нашем доступе  открывается лишь  часть нашего сознательного \`Я\`.
 
 Без другого человека невозможно заглянуть и увидеть бессознательную сторону и понять, например, почему мы быстро разочаровываемся или почему мы  боимся зависимости?
 
@@ -240,12 +238,19 @@ function ScrollToTop() {
 function Header() {
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
+  const navigate = useNavigate()
+  const location = useLocation()
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20)
     window.addEventListener('scroll', onScroll)
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
+
+  const isActive = (path: string) => {
+    if (path === '/') return location.pathname === '/'
+    return location.pathname.startsWith(path)
+  }
 
   return (
     <header
@@ -271,54 +276,59 @@ function Header() {
         }}
       >
         {/* Logo */}
-        <NavLink
-          to="/"
-          style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 0, display: 'flex', alignItems: 'center', gap: '10px', textDecoration: 'none' }}
+        <button
+          onClick={() => { navigate('/'); setMenuOpen(false) }}
+          style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 0, display: 'flex', alignItems: 'center', gap: '10px' }}
         >
           <div style={{ width: '32px', height: '32px', borderRadius: '50%', background: 'var(--primary)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
             <span style={{ color: '#fff', fontSize: '14px', fontWeight: 700, fontFamily: 'Fraunces, serif', fontStyle: 'italic' }}>А</span>
           </div>
           <span style={{ fontFamily: 'Fraunces, serif', fontWeight: 400, fontSize: '18px', color: 'var(--fg)' }}>Эльвира Зорина</span>
-        </NavLink>
+        </button>
 
         {/* Desktop tabs */}
         <nav style={{ display: 'flex', gap: '4px', alignItems: 'center' }} className="hidden-mobile">
-          {TABS.map(tab => (
-            <NavLink
-              key={tab.id}
-              to={tab.path}
-              className={({ isActive }) => (isActive ? 'nav-link active' : 'nav-link')}
-              style={({ isActive }) => ({
-                padding: '8px 18px',
-                borderRadius: '50px',
-                border: 'none',
-                cursor: 'pointer',
-                fontFamily: 'Nunito, sans-serif',
-                fontWeight: isActive ? 700 : 500,
-                fontSize: '14px',
-                background:
-                  tab.id === 'book'
-                    ? 'var(--primary)'
-                    : isActive
-                    ? 'var(--primary-light)'
-                    : 'transparent',
-                color:
-                  tab.id === 'book'
-                    ? '#fff'
-                    : isActive
-                    ? 'var(--primary)'
-                    : 'var(--muted)',
-                transition: 'all 0.2s',
-                textDecoration: 'none',
-              })}
-              onClick={() => {
-                setMenuOpen(false)
-                window.scrollTo({ top: 0, behavior: 'smooth' })
-              }}
-            >
-              {tab.label}
-            </NavLink>
-          ))}
+          {NAV_ITEMS.map(item => {
+            const active = isActive(item.path)
+            return (
+              <button
+                key={item.path}
+                onClick={() => { navigate(item.path); setMenuOpen(false); window.scrollTo({ top: 0, behavior: 'smooth' }) }}
+                style={{
+                  padding: '8px 18px',
+                  borderRadius: '50px',
+                  border: 'none',
+                  cursor: 'pointer',
+                  fontFamily: 'Nunito, sans-serif',
+                  fontWeight: active ? 700 : 500,
+                  fontSize: '14px',
+                  background:
+                    item.label === 'Записаться'
+                      ? 'var(--primary)'
+                      : active
+                      ? 'var(--primary-light)'
+                      : 'transparent',
+                  color:
+                    item.label === 'Записаться'
+                      ? '#fff'
+                      : active
+                      ? 'var(--primary)'
+                      : 'var(--muted)',
+                  transition: 'all 0.2s',
+                }}
+                onMouseEnter={e => {
+                  if (item.label !== 'Записаться' && !active)
+                    e.currentTarget.style.color = 'var(--fg)'
+                }}
+                onMouseLeave={e => {
+                  if (item.label !== 'Записаться' && !active)
+                    e.currentTarget.style.color = 'var(--muted)'
+                }}
+              >
+                {item.label}
+              </button>
+            )
+          })}
         </nav>
 
         {/* Mobile hamburger */}
@@ -338,32 +348,29 @@ function Header() {
       {/* Mobile menu */}
       {menuOpen && (
         <div style={{ background: 'var(--bg)', borderTop: '1px solid var(--border)', padding: '16px 24px', display: 'flex', flexDirection: 'column', gap: '4px' }}>
-          {TABS.map(tab => (
-            <NavLink
-              key={tab.id}
-              to={tab.path}
-              className={({ isActive }) => (isActive ? 'nav-link-mobile active' : 'nav-link-mobile')}
-              style={({ isActive }) => ({
-                padding: '12px 16px',
-                borderRadius: '12px',
-                border: 'none',
-                cursor: 'pointer',
-                textAlign: 'left',
-                fontFamily: 'Nunito, sans-serif',
-                fontWeight: isActive ? 700 : 500,
-                fontSize: '15px',
-                background: tab.id === 'book' ? 'var(--primary)' : isActive ? 'var(--primary-light)' : 'transparent',
-                color: tab.id === 'book' ? '#fff' : isActive ? 'var(--primary)' : 'var(--fg)',
-                textDecoration: 'none',
-              })}
-              onClick={() => {
-                setMenuOpen(false)
-                window.scrollTo({ top: 0, behavior: 'smooth' })
-              }}
-            >
-              {tab.label}
-            </NavLink>
-          ))}
+          {NAV_ITEMS.map(item => {
+            const active = isActive(item.path)
+            return (
+              <button
+                key={item.path}
+                onClick={() => { navigate(item.path); setMenuOpen(false); window.scrollTo({ top: 0, behavior: 'smooth' }) }}
+                style={{
+                  padding: '12px 16px',
+                  borderRadius: '12px',
+                  border: 'none',
+                  cursor: 'pointer',
+                  textAlign: 'left',
+                  fontFamily: 'Nunito, sans-serif',
+                  fontWeight: active ? 700 : 500,
+                  fontSize: '15px',
+                  background: item.label === 'Записаться' ? 'var(--primary)' : active ? 'var(--primary-light)' : 'transparent',
+                  color: item.label === 'Записаться' ? '#fff' : active ? 'var(--primary)' : 'var(--fg)',
+                }}
+              >
+                {item.label}
+              </button>
+            )
+          })}
         </div>
       )}
     </header>
@@ -388,9 +395,6 @@ function Layout() {
         @media (max-width: 768px) {
           .hidden-mobile { display: none !important; }
           .show-mobile { display: flex !important; }
-        }
-        .nav-link.active {
-          box-shadow: 0 0 0 1px var(--primary);
         }
       `}</style>
     </div>
