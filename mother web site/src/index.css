@@ -1,0 +1,30 @@
+@import 'https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;1,9..144,300;1,9..144,400&family=Nunito:wght@300;400;500;600;700&display=swap';
+@import 'tailwindcss';
+
+:root {
+  --bg: #FEFCF8;
+  --fg: #1C1730;
+  --primary: #5B4CF5;
+  --primary-light: #EDE9FE;
+  --accent: #FF8552;
+  --accent-light: #FFF0E8;
+  --card: #FFFFFF;
+  --muted: #7A6E96;
+  --border: #E8E2F7;
+  --radius: 16px;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: 'Nunito', sans-serif;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+}
+
+::-webkit-scrollbar { width: 0; }
