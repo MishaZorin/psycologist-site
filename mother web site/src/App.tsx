@@ -54,7 +54,7 @@ const articles = [
 Неважно, какой ответ имеется у вас на этот вопрос, главное, чтобы он был, но, если вы по какой-то причине  утратили его,  возможно, настало время вновь найти его.`,
     img: art1Img,
     date: '12 июля 2026',
-    time: '5 мин',
+  
   },
   {
 
@@ -77,7 +77,7 @@ const articles = [
 Нужен тот, с помощью которого мы сможем отделить прошлое от настоящего, чтобы оставить его там, где оно и должно остаться. И тогда настоящее станет светлее и миролюбивее. `,
     img: art2Img,
     date: '3 июня 2026',
-    time: '8 мин',
+   
   },
   {
 
@@ -108,7 +108,7 @@ const articles = [
  ✅ В других случаях перенос  становится искажением  реальности и сильно мешает жить.`,
     img: art4Img,
     date: '18 мая 2026',
-    time: '6 мин',
+   
   },
   {
 
@@ -162,7 +162,7 @@ const articles = [
 
        Но вопрос цены – это вопрос ценности терапии для вас. Мы вкладываемся в то, что ценно для нас самих. Глубинные изменения – самые стойкие. Да, они требуют затрат, но  они того стоят. Терапия всегда окупается, так как меняется сама жизнь.`,
     date: '2 апреля 2026',
-    time: '7 мин',
+
   },
   {
 
@@ -196,7 +196,7 @@ const articles = [
 Мы можем испытывать чувства любви и ненависти по отношению к одному и тому же человеку, можем желать чего-то и одновременно бояться этого, можем испытывать противоречивые желания, нет ничего неожиданного в том, что у людей есть сложные и противоречивые чувства. Психоанализ добавил термины, с помощью которых можно говорить о внутренних противоречиях, постепенно добавляя краски в черно-белую картину.`,
     img: art5Img,
     date: '18 мая 2026',
-    time: '6 мин',
+  
   },
   {
 
@@ -230,7 +230,7 @@ const articles = [
 `,
     img: art6Img,
     date: '18 мая 2026',
-    time: '6 мин',
+   
   },
 
   {
@@ -271,7 +271,7 @@ const articles = [
 `,
     img: art7Img,
     date: '18 мая 2026',
-    time: '6 мин',
+   
   },
 
   {
@@ -296,7 +296,7 @@ const articles = [
 `,
     img: art8Img,
     date: '18 мая 2026',
-    time: '6 мин',
+    
   },
    {
 
@@ -340,7 +340,7 @@ const articles = [
 `,
     img: art9Img,
     date: '18 мая 2026',
-    time: '6 мин',
+    
   },
 
   {
@@ -398,7 +398,7 @@ const articles = [
 `,
     img: art10Img,
     date: '18 мая 2026',
-    time: '6 мин',
+    
   },
   {
 
@@ -454,7 +454,7 @@ const articles = [
 `,
     img: art11Img,
     date: '18 мая 2026',
-    time: '6 мин',
+    
   },
   {
 
@@ -493,7 +493,7 @@ const articles = [
 `,
     img: art12Img,
     date: '18 мая 2026',
-    time: '6 мин',
+    
   },
   {
 
@@ -530,7 +530,7 @@ const articles = [
 `,
     img: art13Img,
     date: '18 мая 2026',
-    time: '6 мин',
+    
   },
 ]
 
@@ -737,7 +737,7 @@ function ArticleView({ article, onBack }: { article: typeof articles[0]; onBack:
       </h1>
       <div style={{ display: 'flex', gap: '16px', marginBottom: '24px', fontSize: '14px', color: 'var(--muted)' }}>
         <span>{article.date}</span>
-        <span>{article.time} чтения</span>
+        {/* <span>{article.time} чтения</span> */}
       </div>
       {/* <p style={{ fontSize: '16px', lineHeight: 1.8, color: 'var(--fg)', marginBottom: '24px' }}>
         {article.excerpt}
@@ -800,9 +800,9 @@ export default function App() {
             onClick={() => goTo('about')}
             style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 0, display: 'flex', alignItems: 'center', gap: '10px' }}
           >
-            <div style={{ width: '32px', height: '32px', borderRadius: '50%', background: 'var(--primary)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            {/* <div style={{ width: '32px', height: '32px', borderRadius: '50%', background: 'var(--primary)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
               <span style={{ color: '#fff', fontSize: '14px', fontWeight: 700, fontFamily: 'Fraunces, serif', fontStyle: 'italic' }}>Э</span>
-            </div>
+            </div> */}
             <span style={{ fontFamily: 'Fraunces, serif', fontWeight: 400, fontSize: '18px', color: 'var(--fg)' }}>Эльвира Зорина</span>
           </button>
 
@@ -1052,7 +1052,7 @@ function AboutSection({ onBook }: { onBook: () => void }) {
               display: 'block',
             }}
           />
-          <div style={{
+          {/* <div style={{
             position: 'absolute',
             top: '24px',
             right: '-16px',
@@ -1066,7 +1066,7 @@ function AboutSection({ onBook }: { onBook: () => void }) {
             lineHeight: 1.4,
           }}>
             500+<br /><span style={{ fontWeight: 400, fontSize: '11px' }}>клиентов</span>
-          </div>
+          </div> */}
         </div>
 
         {/* Text right */}
@@ -1183,7 +1183,7 @@ function ArticlesSection({ onReadArticle }: { onReadArticle: (index: number) => 
               >
                 {a.tag}
               </span> */}
-              <span style={{ fontSize: '12px', color: 'var(--muted)' }}>{a.time} чтения</span>
+              {/* <span style={{ fontSize: '12px', color: 'var(--muted)' }}>{a.time} чтения</span> */}
             </div>
             <h3
               style={{
@@ -1225,7 +1225,7 @@ function HowIWorkSection({ onBook }: { onBook: () => void }) {
   paddingRight: '20px'
 }}>
   {/* Первая встреча - блок */}
-  <div style={{ marginBottom: '64px', maxWidth: '560px', marginLeft: 'auto', marginRight: 'auto' }}>
+  <div style={{ marginBottom: '64px', marginLeft: 'auto', marginRight: 'auto' }}>
     <h2 style={{ 
       fontFamily: 'Fraunces, serif', 
       fontWeight: 300, 
@@ -1412,8 +1412,8 @@ function ContactsSection() {
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '32px' }} className="contacts-grid">
         <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
           {[
-            { icon: '✉', label: 'Email', value: 'anna@sokolova-psy.ru', href: 'mailto:anna@sokolova-psy.ru' },
-            { icon: '✆', label: 'Телефон', value: '+7 (916) 234-56-78', href: 'tel:+79162345678' },
+            { icon: '✉', label: 'Email', value: 'Lira81@list.ru', href: 'Lira81@list.ru' },
+            { icon: '✆', label: 'Телефон', value: '+7 (916) 234-56-78', href: '+7 911 738 5996' },
             // { icon: '◎', label: 'Telegram', value: '@anna_psy', href: '#' },
             // { icon: '⊕', label: 'Instagram', value: '@anna.sokolova.psy', href: '#' },
           ].map(c => (
@@ -1476,7 +1476,7 @@ function ContactsSection() {
             }}
           >
             <div style={{ marginBottom: '24px' }}>
-             <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A7550c184e6441a3bb6a0fc4946e8347e9bc12b70e523333050cbc68464fdaf8f&amp;source=constructor" width="500" height="400" ></iframe>
+             <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A9add7b366a71ab870f9c9e892d1a7ced98f1524ed1002805382635b83c535c83&amp;source=constructor" width="500" height="400" ></iframe>
             </div>
 
             <div style={{ marginBottom: '24px' }}>
