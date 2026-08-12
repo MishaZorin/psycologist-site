@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import userPhoto from './assets/177.jpg'
-import sofaPhoto from './assets/jpg_2000.jpg'
+import flowers from './assets/main.jpeg'
 import art1Img from './assets/1220-altaj.jpg'
 import art2Img from './assets/очки.jpg'
 import art3Img from './assets/вопрос.png'
@@ -927,7 +927,7 @@ function AboutSection({ onBook }: { onBook: () => void }) {
       {/* Hero — full-width sofa photo with text overlay */}
       <div style={{ position: 'relative', borderRadius: '32px', overflow: 'hidden', marginBottom: '80px', marginTop: '32px' }}>
         <img
-          src={sofaPhoto}
+          src={flowers}
           alt="Уютный кабинет психолога"
           style={{ width: '100%', height: '88vh', minHeight: '520px', objectFit: 'cover', display: 'block' }}
         />
