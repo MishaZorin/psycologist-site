@@ -14,6 +14,9 @@ import art10Img from './assets/прощение.jpg'
 import art11Img from './assets/любовь.jpg'
 import art12Img from './assets/убежище.jpg'
 import art13Img from './assets/капли.jpg'
+import quotesBack from './assets/Image-1.jpg'
+
+
 type Tab = 'about' | 'articles' | 'howIWork' | 'contacts' | 'book' | 'quotes'
 
 const TABS: { id: Tab; label: string }[] = [
@@ -55,50 +58,43 @@ const articles = [
 
     title: 'Могу ли я сам себе помочь?',
     img: art3Img,
-    text: `       Методы самопомощи, конечно же, существуют. Например, существуют различные способы для снятия стресса и напряжения. Те, кто их практикует регулярно, могут достичь хороших результатов. Но психотерапию самому на себе не произвести. Мы все имеем некие слепые пятна, которые не в состоянии увидеть в одиночку.
+    text: `Методы самопомощи, конечно же, существуют. Например, существуют различные способы для снятия стресса и напряжения. Те, кто их практикует регулярно, могут достичь хороших результатов. Но психотерапию самому на себе не произвести. Мы все имеем некие слепые пятна, которые не в состоянии увидеть в одиночку.
 
 - Могут ли помочь книги?
-
        Хорошая книга, действительно, может помочь понять, откуда проблема. И таких книг много! Другое дело, что у каждого из нас свой бекграунд, своя история. Поэтому то, что помогло одному - не помогает другому. Понять, почему что-то происходит, можно, а вот изменить это в своей жизни  - задача посложнее. Нет универсальных ответов, как нет одного рецепта счастья. Поэтому здесь только один путь – в личную терапию.  
 
 - Как понять, что пора к психологу?
-
        Обычно люди это понимают по силе дискомфорта, который они чувствуют.  «Большинство людей проживают свою жизнь в тихом отчаянии». Генри Дэвид Торо.
 
 - Как проходит первая консультация?
+       Первая консультация – волнительное событие, как для клиента, так и для психолога. Консультация длится 50 минут, вы можете в свободной форме рассказать о своих трудностях и о том, что вас привело. На 1 консультации происходит:
 
-       Первая консультация – волнительное событие, как для клиента, так и для психолога. Консультация длится 50 минут, вы можете в свободной форме рассказать о своих трудностях и о том, что вас привело. Психолог будет что-то уточнять, задавать вопросы. На 1 консультации происходит:
+✅знакомство клиента и психолога;
+✅диагностика;
+✅обсуждение плана дальнейшей работы;
 
-знакомство клиента и психолога;
-диагностика состояния клиента;
-обсуждение плана дальнейшей работы;
 - Что ждать от первой консультации?
-
        После первой встречи вы сможете понять, насколько вам подходит специалист и  метод, в котором он работает, потому что для продуктивной работы  вам должно быть комфортно. Если  вы  чувствуете себя понятым, понимаете, что будет происходить дальше, вам легко говорить и спрашивать, скорее всего специалист вам подходит. Если у вас есть ощущение, что специалист знает, а главное - умеет справляться со сложными ситуациями, это также хороший показатель для совместной работы.
 
 - Сколько консультаций нужно, чтобы стало легче?
-
        Конечно, всем нам хочется побыстрее решить свои проблемы. Но так получается не всегда. Здесь все зависит от вашей проблемы. Если проблема локальная и возникла не так давно, то вполне вероятно, что можно её разрешить в течение нескольких сессий (от 5-15 сессий).
 
        Если же проблема существует несколько лет, и вы уже самостоятельно пытались ее решить, но у вас никак не получалось с ней справиться, то это говорит о том, что корни проблем лежат более глубоко и, чтобы до них добраться, – нужно время.  Наши психические процессы – инертны, чтобы изменить привычные процессы, требуется длительная терапия, но первые улучшения состояния наступают гораздо раньше.
 
 - Как часто нужно приходить на консультации?
-
      Обычная частота встреч 1-3 сессии в неделю. Этого достаточно, чтобы поддерживать терапевтический процесс на хорошем уровне.
 
 - Сколько времени длится консультация?
-
      Индивидуальная консультация длиться 50 минут. Семейная встреча – 1,5 часа.
 
 - Как определить, можете ли Вы справиться самостоятельно или все-таки нужна помощь специалиста?
+     У всех у нас бывают стрессовые моменты в жизни, жизнь без проблем – недостижимая мечта многих людей. Но мы все, так или иначе, сталкиваемся с трудностями - некоторые из которых нам удается решить своими силами, другие - с помощью близких людей и родственников.
 
-     У всех у нас бывают стрессовые моменты в жизни, жизнь без проблем – недостижимая мечта многих людей. Но мы все, так или иначе, сталкивается с трудностями - некоторые из которых нам удается решить своими силами, другие - с помощью близких людей и родственников.
-
-        Но бывает и так, что в жизни появляются события, которые очень сильно влияют на человека: такими событиями могут быть - смена работы, переезд, смерть  или болезнь близкого человека, развод. Они разделяют жизнь человека на «до» и «после». Если с течением времени вам самостоятельно не удалось их пережить, не становится легче, а наоборот возникает апатия, депрессия, то скорее всего без опытного специалиста вам не разобраться.
+        Но бывает и так, что в жизни появляются события, которые очень сильно влияют на человека: такими событиями могут быть: смена работы, переезд, смерть  или болезнь близкого человека, развод. Они разделяют жизнь человека на «до» и «после». Если с течением времени вам самостоятельно не удалось их пережить, не становится легче, а наоборот возникает апатия, депрессия, то скорее всего без опытного специалиста вам не разобраться.
 
  Если вы понимаете, что на решение вашей проблемы брошены все ваши усилия, а результата нет, но есть истощение – не теряете свое драгоценное время, так как жизнь одна.
-- Почему психотерапия стоит денег?
 
+- Почему психотерапия стоит денег?
         Конечно, психотерапия — это работа, требующая не только временных затрат, но и финансовых вложений. Вопрос денег на первых порах часто оказывается решающим, чтобы прийти в психотерапию. Психотерапия - это не просто разговор, как может казаться на первый взгляд.  Это очень глубокий и сложный процесс, которому обучаются годами.
 
        Но вопрос цены – это вопрос ценности терапии для вас. Мы вкладываемся в то, что ценно для нас самих. Глубинные изменения – самые стойкие. Да, они требуют затрат, но  они того стоят. Терапия всегда окупается, так как меняется сама жизнь.`,
@@ -787,16 +783,16 @@ export default function App() {
   }
 
   return (
-    <div style={{ minHeight: '100vh', background: 'var(--bg)' }}>
+    <div style={{ minHeight: '100vh', background: '#E8CFA8' }}>
       {/* NAV */}
       <header
         style={{
           position: 'sticky',
           top: 0,
           zIndex: 100,
-          background: scrolled ? 'rgba(254,252,248,0.92)' : 'transparent',
+          background: scrolled ? '#E8CFA8' : 'transparent',
           backdropFilter: scrolled ? 'blur(12px)' : 'none',
-          borderBottom: scrolled ? '1px solid var(--border)' : '1px solid transparent',
+          // borderBottom: scrolled ? '1px solid var(--border)' : '1px solid transparent',
           transition: 'all 0.3s',
         }}
       >
@@ -964,21 +960,23 @@ function AboutSection({ onBook }: { onBook: () => void }) {
           maxWidth: '680px',
         }}>
           <div style={{
-            display: 'inline-block',
-            padding: '6px 14px',
-            borderRadius: '50px',
-            background: 'rgba(255,255,255,0.15)',
-            backdropFilter: 'blur(8px)',
-            color: '#fff',
-            fontWeight: 700,
-            fontSize: '12px',
-            letterSpacing: '0.1em',
-            textTransform: 'uppercase',
-            marginBottom: '24px',
-            width: 'fit-content',
-            border: '1px solid rgba(255,255,255,0.25)',
+           display: 'inline-block',
+padding: '6px 14px',
+borderRadius: '50px',
+background: 'rgba(255,255,255,0.15)',
+backdropFilter: 'blur(8px)',
+color: '#fff',
+fontWeight: 700,
+fontSize: '12px',
+letterSpacing: '0.1em',
+textTransform: 'uppercase',
+width: 'fit-content',
+border: '1px solid rgba(255,255,255,0.25)',
+marginTop: '-60px',
+marginBottom: '32px',
           }}>
-            Психолог · Психоаналитический терапевт
+            
+           <h3 >Психолог · Психоаналитический терапевт</h3>
           </div>
           <h1 style={{
             fontFamily: 'Fraunces, serif',
@@ -986,61 +984,13 @@ function AboutSection({ onBook }: { onBook: () => void }) {
             fontSize: 'clamp(38px, 5vw, 68px)',
             lineHeight: 1.1,
             margin: '0 0 24px',
-            color: '#fff',
+            color: '#F3E7FF' 
           }}>
             Пространство,{' '}
-            <em style={{ fontStyle: 'italic', color: '#c4b5fd' }}>где можно быть собой</em>
+            <em style={{ fontStyle: 'italic', color: '#F3E7FF' }}>где можно быть собой</em>
           </h1>
-          <p style={{
-            fontSize: 'clamp(15px, 1.8vw, 18px)',
-            lineHeight: 1.75,
-            color: 'rgba(255,255,255,0.82)',
-            margin: '0 0 40px',
-            maxWidth: '480px',
-          }}>
-            Я помогаю людям разобраться в себе, справиться с тревогой, найти опору
-            в отношениях и лучше понять себя через глубокую аналитическую работу.
-          </p>
-          <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
-            <button
-              onClick={onBook}
-              style={{
-                padding: '16px 36px',
-                borderRadius: '50px',
-                background: 'var(--primary)',
-                color: '#fff',
-                border: 'none',
-                cursor: 'pointer',
-                fontFamily: 'Nunito, sans-serif',
-                fontWeight: 700,
-                fontSize: '16px',
-                transition: 'opacity 0.2s',
-              }}
-              onMouseEnter={e => (e.currentTarget.style.opacity = '0.85')}
-              onMouseLeave={e => (e.currentTarget.style.opacity = '1')}
-            >
-              Записаться на сессию
-            </button>
-            <button
-              onClick={() => { }}
-              style={{
-                padding: '16px 36px',
-                borderRadius: '50px',
-                background: 'transparent',
-                color: '#fff',
-                border: '1.5px solid rgba(255,255,255,0.4)',
-                cursor: 'pointer',
-                fontFamily: 'Nunito, sans-serif',
-                fontWeight: 600,
-                fontSize: '16px',
-                transition: 'border-color 0.2s',
-              }}
-              onMouseEnter={e => (e.currentTarget.style.borderColor = 'rgba(255,255,255,0.8)')}
-              onMouseLeave={e => (e.currentTarget.style.borderColor = 'rgba(255,255,255,0.4)')}
-            >
-              Узнать подробнее
-            </button>
-          </div>
+          
+         
         </div>
       </div>
 
@@ -1168,7 +1118,7 @@ function ArticlesSection({ onReadArticle }: { onReadArticle: (index: number) => 
           <article
             key={i}
             style={{
-              background: 'var(--card)',
+              background: '#F3E6D0',
               border: '1px solid var(--border)',
               borderRadius: 'var(--radius)',
               padding: '32px',
@@ -1544,69 +1494,79 @@ function ContactsSection() {
     </div>
   )
 }
-function QuotesSection(){
-   return (
-   <div style={{ paddingTop: '60px' }}>
+function QuotesSection() {
+  return (
+    <div 
+      style={{ 
+        backgroundImage: `url(${quotesBack})`, 
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+        width: '100%', 
+        padding: '60px 24px', 
+        boxSizing: 'border-box',
+        borderRadius:'20px'
+      }} 
+    >
       <div style={{ marginBottom: '48px' }}>
-        <h2 style={{ fontFamily: 'Fraunces, serif', fontWeight: 300, fontSize: 'clamp(32px, 4vw, 52px)', margin: '0 0 12px' }}>
+        <h2 
+          style={{ 
+            fontFamily: 'Fraunces, serif', 
+            fontWeight: 300, 
+            fontSize: 'clamp(32px, 4vw, 52px)', 
+            margin: '0 0 12px',
+            color: 'white',
+          
+          }}
+        >
           Цитаты
         </h2>
-        
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '24px' }} className="articles-grid">
+      <div 
+        className="articles-grid"
+        
+      >
         {quotes.map((q, i) => (
           <article
             key={i}
             style={{
-              background: 'var(--card)',
-              border: '1px solid var(--border)',
-              borderRadius: 'var(--radius)',
               padding: '32px',
               cursor: 'pointer',
               transition: 'transform 0.2s, box-shadow 0.2s',
+              marginBottom: '20px'
             }}
-            // onClick={() => onReadArticle(i)}
             onMouseEnter={e => {
-              e.currentTarget.style.transform = 'translateY(-4px)'
-              e.currentTarget.style.boxShadow = '0 16px 40px rgba(91,76,245,0.08)'
+              e.currentTarget.style.transform = 'translateY(-4px)';
+              e.currentTarget.style.boxShadow = '0 16px 40px rgba(91,76,245,0.08)';
             }}
             onMouseLeave={e => {
-              e.currentTarget.style.transform = 'none'
-              e.currentTarget.style.boxShadow = 'none'
+              e.currentTarget.style.transform = 'none';
+              e.currentTarget.style.boxShadow = 'none';
             }}
           >
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '20px' }}>
-           
-            </div>
             <h3
               style={{
                 fontFamily: 'Fraunces, serif',
                 fontWeight: 400,
                 fontSize: '22px',
                 lineHeight: 1.3,
-                margin: '0 0 14px',
-                color: 'var(--fg)',
+                margin: '0',
+                color: 'white',
               }}
             >
               {q.quote}
             </h3>
-            {/* <p style={{ color: 'var(--muted)', fontSize: '14px', lineHeight: 1.7, margin: '0 0 24px' }}>{a.text}</p> */}
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-              {/* <span style={{ fontSize: '12px', color: 'var(--muted)' }}>{a.date}</span> */}
-             
-            </div>
           </article>
         ))}
       </div>
-
       <style>{`
         @media (max-width: 768px) {
           .articles-grid { grid-template-columns: 1fr !important; }
         }
-      `}</style>
+      `}</style> 
     </div>
-  )
+  );
 }
 
 function BookSection() {
