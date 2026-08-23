@@ -792,7 +792,7 @@ export default function App() {
           zIndex: 100,
           background: scrolled ? '#E8CFA8' : 'transparent',
           backdropFilter: scrolled ? 'blur(12px)' : 'none',
-          // borderBottom: scrolled ? '1px solid var(--border)' : '1px solid transparent',
+          borderBottom: scrolled ? '1px solid var(--border)' : '1px solid transparent',
           transition: 'all 0.3s',
         }}
       >
@@ -989,6 +989,14 @@ marginBottom: '32px',
             Пространство,{' '}
             <em style={{ fontStyle: 'italic', color: '#F3E7FF' }}>где можно быть собой</em>
           </h1>
+          <button
+  onClick={onBook}
+  style={{
+    
+  }}
+>
+  .
+</button>
           
          
         </div>
