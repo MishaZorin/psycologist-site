@@ -20,9 +20,9 @@ import quotesBack from './assets/Image-1.jpg'
 type Tab = 'about' | 'articles' | 'howIWork' | 'contacts' | 'book' | 'quotes'
 
 const TABS: { id: Tab; label: string }[] = [
-  { id: 'about', label: 'О себе' },
+  { id: 'about', label: 'Обо мне' },
   { id: 'howIWork', label: 'Как работаю' },
-  { id: 'articles', label: 'Статьи' },
+  { id: 'articles', label: 'Блог' },
   { id: 'quotes', label: 'Цитаты' },
   { id: 'contacts', label: 'Контакты' },
   { id: 'book', label: 'Записаться' },
@@ -815,7 +815,7 @@ export default function App() {
             {/* <div style={{ width: '32px', height: '32px', borderRadius: '50%', background: 'var(--primary)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
               <span style={{ color: '#fff', fontSize: '14px', fontWeight: 700, fontFamily: 'Fraunces, serif', fontStyle: 'italic' }}>Э</span>
             </div> */}
-            <span style={{ fontFamily: 'Fraunces, serif', fontWeight: 400, fontSize: '18px', color: 'var(--fg)' }}>Эльвира Зорина</span>
+            <span style={{ fontFamily: 'Fraunces, serif', fontWeight: 400, fontSize: '24px', color: 'var(--fg)' }}>Психолог Эльвира Зорина</span>
           </button>
 
           {/* Desktop tabs */}
@@ -831,7 +831,7 @@ export default function App() {
                   cursor: 'pointer',
                   fontFamily: 'Nunito, sans-serif',
                   fontWeight: activeTab === tab.id ? 700 : 500,
-                  fontSize: '14px',
+                  fontSize: '18px',
                   background:
                     tab.id === 'book'
                       ? 'var(--primary)'
@@ -1045,13 +1045,13 @@ marginBottom: '32px',
 
         {/* Text right */}
         <div style={{ paddingTop: '12px' }}>
-          <h2 style={{ fontFamily: 'Fraunces, serif', fontWeight: 300, fontSize: '36px', margin: '0 0 8px', lineHeight: 1.2 }}>
+          {/* <h2 style={{ fontFamily: 'Fraunces, serif', fontWeight: 300, fontSize: '18px', margin: '0 0 8px', lineHeight: 1.2,textTransform: 'uppercase' }}>
             О себе
-          </h2>
-          <p style={{ color: 'var(--primary)', fontWeight: 600, fontSize: '14px', letterSpacing: '0.05em', textTransform: 'uppercase', margin: '0 0 20px' }}>
+          </h2> */}
+          <p style={{ color: 'black', fontWeight: 600, fontSize: '18px', letterSpacing: '0.05em', textTransform: 'uppercase', margin: '0 0 20px',fontFamily: 'Fraunces, serif', }}>
             Психолог · Психоаналитический терапевт
           </p>
-          <p style={{ color: 'var(--muted)', lineHeight: 1.8, fontSize: '15px', margin: '0 0 28px' }}>
+          <p style={{ color: 'black', lineHeight: 1.8, fontSize: '15px', margin: '0 0 28px' }}>
             С 2005 года работаю с людьми, которые ищут глубокого понимания себя. Опираюсь на психоаналитический подход и современные методы психотерапии. Регулярно прохожу супервизию и повышаю квалификацию.
           </p>
           <h3 style={{ fontFamily: 'Fraunces, serif', fontWeight: 400, fontSize: '18px', margin: '0 0 16px', color: 'var(--fg)' }}>
@@ -1083,7 +1083,7 @@ marginBottom: '32px',
                   alignItems: 'flex-start',
                   gap: '10px',
                   padding: '10px 14px',
-                  background: 'var(--card)',
+                  background: 'rgb(243, 230, 208)',
                   border: '1px solid var(--border)',
                   borderRadius: '10px',
                   fontSize: '13px',
@@ -1114,14 +1114,14 @@ function ArticlesSection({ onReadArticle }: { onReadArticle: (index: number) => 
     <div style={{ paddingTop: '60px' }}>
       <div style={{ marginBottom: '48px' }}>
         <h2 style={{ fontFamily: 'Fraunces, serif', fontWeight: 300, fontSize: 'clamp(32px, 4vw, 52px)', margin: '0 0 12px' }}>
-          Статьи
+          Блог
         </h2>
         <p style={{ color: 'var(--muted)', fontSize: '16px', margin: 0 }}>
           Пишу о психологии простым языком.
         </p>
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '24px' }} className="articles-grid">
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '24px' }} className="articles-grid">
         {articles.map((a, i) => (
           <article
             key={i}
@@ -1159,6 +1159,17 @@ function ArticlesSection({ onReadArticle }: { onReadArticle: (index: number) => 
               </span> */}
               {/* <span style={{ fontSize: '12px', color: 'var(--muted)' }}>{a.time} чтения</span> */}
             </div>
+                        <img
+  src={a.img}
+  alt=""
+  style={{
+    width: '100%',
+    aspectRatio: '600 / 400',
+    objectFit: 'cover',
+    borderRadius: '12px',
+    display: 'block',
+  }}
+/>
             <h3
               style={{
                 fontFamily: 'Fraunces, serif',
@@ -1171,17 +1182,7 @@ function ArticlesSection({ onReadArticle }: { onReadArticle: (index: number) => 
             >
               {a.title}
             </h3>
-            <img
-  src={a.img}
-  alt=""
-  style={{
-    width: '100%',
-    aspectRatio: '600 / 400',
-    objectFit: 'cover',
-    borderRadius: '12px',
-    display: 'block',
-  }}
-/>
+
             {/* <p style={{ color: 'var(--muted)', fontSize: '14px', lineHeight: 1.7, margin: '0 0 24px' }}>{a.text}</p> */}
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
               
@@ -1214,18 +1215,22 @@ function HowIWorkSection({ onBook }: { onBook: () => void }) {
     <h2 style={{ 
       fontFamily: 'Fraunces, serif', 
       fontWeight: 300, 
-      fontSize: 'clamp(32px, 4vw, 52px)', 
+      fontSize: 'clamp(20px, 4vw, 30px)', 
       margin: '0 0 12px',
-      textAlign: 'center'
+      textAlign: 'center',
+      
     }}>
       Как я работаю? Первая встреча
     </h2>
-    <p style={{ 
-      color: 'var(--muted)', 
+    
+      <p style={{ 
+      color: 'black', 
       fontSize: '16px', 
       lineHeight: 1.7, 
       margin: 0,
-      textAlign: 'left'
+      textAlign: 'left',
+      
+      
     }}>
       Первая встреча с психологом – событие всегда волнующее как для клиента, так и для психотерапевта.
       В работе "О начале лечения" Фрейд сравнивал психоанализ с партией в шахматы. Последующие ходы на шахматной доске во многом зависят от дебютных ходов. <br /><br />
@@ -1264,6 +1269,8 @@ function HowIWorkSection({ onBook }: { onBook: () => void }) {
 
       Прохождение своей осмысленной индивидуальной терапии порождает мою веру в аналитический
     </p>
+
+    
   </div>
 
   {/* Steps - закомментировано как в оригинале */}
