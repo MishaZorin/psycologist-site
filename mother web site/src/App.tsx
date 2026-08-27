@@ -30,7 +30,7 @@ const TABS: { id: Tab; label: string }[] = [
   { id: 'articles', label: 'Блог' },
   { id: 'quotes', label: 'Цитаты' },
   { id: 'contacts', label: 'Контакты' },
-  { id: 'book', label: 'Записаться' },
+  // { id: 'book', label: 'Записаться' },
   
 ]
 
@@ -665,109 +665,109 @@ const quotes = [
 ];
 
 
-function BookingForm({ onClose }: { onClose?: () => void }) {
-  const [form, setForm] = useState({ name: '', phone: '', message: '' })
-  const [sent, setSent] = useState(false)
+// function BookingForm({ onClose }: { onClose?: () => void }) {
+//   const [form, setForm] = useState({ name: '', phone: '', message: '' })
+//   const [sent, setSent] = useState(false)
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    setSent(true)
-  }
+//   const handleSubmit = (e: React.FormEvent) => {
+//     e.preventDefault()
+//     setSent(true)
+//   }
 
-  const inputStyle: React.CSSProperties = {
-    width: '100%',
-    padding: '14px 18px',
-    border: '1.5px solid var(--border)',
-    borderRadius: '12px',
-    fontFamily: 'Nunito, sans-serif',
-    fontSize: '15px',
-    color: 'var(--fg)',
-    background: '#F7F4FF',
-    outline: 'none',
-    transition: 'border-color 0.2s',
-  }
+//   const inputStyle: React.CSSProperties = {
+//     width: '100%',
+//     padding: '14px 18px',
+//     border: '1.5px solid var(--border)',
+//     borderRadius: '12px',
+//     fontFamily: 'Nunito, sans-serif',
+//     fontSize: '15px',
+//     color: 'var(--fg)',
+//     background: '#F7F4FF',
+//     outline: 'none',
+//     transition: 'border-color 0.2s',
+//   }
 
-  if (sent) {
-    return (
-      <div style={{ textAlign: 'center', padding: '40px 0' }}>
-        <div style={{ fontSize: '52px', marginBottom: '16px' }}>✦</div>
-        <h3 style={{ fontFamily: 'Fraunces, serif', fontSize: '26px', marginBottom: '12px', color: 'var(--primary)' }}>
-          Заявка отправлена
-        </h3>
-        <p style={{ color: 'var(--muted)', lineHeight: 1.6 }}>
-          Я свяжусь с вами в течение 24 часов.<br />
-          Спасибо, что решились сделать этот шаг.
-        </p>
-        {onClose && (
-          <button
-            onClick={onClose}
-            style={{ marginTop: '28px', padding: '12px 32px', borderRadius: '50px', background: 'var(--primary)', color: '#fff', border: 'none', cursor: 'pointer', fontFamily: 'Nunito, sans-serif', fontWeight: 600, fontSize: '15px' }}
-          >
-            Закрыть
-          </button>
-        )}
-      </div>
-    )
-  }
+//   if (sent) {
+//     return (
+//       <div style={{ textAlign: 'center', padding: '40px 0' }}>
+//         <div style={{ fontSize: '52px', marginBottom: '16px' }}>✦</div>
+//         <h3 style={{ fontFamily: 'Fraunces, serif', fontSize: '26px', marginBottom: '12px', color: 'var(--primary)' }}>
+//           Заявка отправлена
+//         </h3>
+//         <p style={{ color: 'var(--muted)', lineHeight: 1.6 }}>
+//           Я свяжусь с вами в течение 24 часов.<br />
+//           Спасибо, что решились сделать этот шаг.
+//         </p>
+//         {onClose && (
+//           <button
+//             onClick={onClose}
+//             style={{ marginTop: '28px', padding: '12px 32px', borderRadius: '50px', background: 'var(--primary)', color: '#fff', border: 'none', cursor: 'pointer', fontFamily: 'Nunito, sans-serif', fontWeight: 600, fontSize: '15px' }}
+//           >
+//             Закрыть
+//           </button>
+//         )}
+//       </div>
+//     )
+//   }
 
-  return (
-    <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-      <div>
-        <label style={{ display: 'block', marginBottom: '6px', fontWeight: 600, fontSize: '13px', color: 'var(--muted)', letterSpacing: '0.05em', textTransform: 'uppercase' }}>Имя</label>
-        <input
-          style={inputStyle}
-          placeholder="Ваше имя"
-          value={form.name}
-          onChange={e => setForm(f => ({ ...f, name: e.target.value }))}
-          required
-        />
-      </div>
-      <div>
-        <label style={{ display: 'block', marginBottom: '6px', fontWeight: 600, fontSize: '13px', color: 'var(--muted)', letterSpacing: '0.05em', textTransform: 'uppercase' }}>Телефон</label>
-        <input
-          style={inputStyle}
-          placeholder="+7 (___) ___-__-__"
-          value={form.phone}
-          onChange={e => setForm(f => ({ ...f, phone: e.target.value }))}
-          required
-        />
-      </div>
-      <div>
-        <label style={{ display: 'block', marginBottom: '6px', fontWeight: 600, fontSize: '13px', color: 'var(--muted)', letterSpacing: '0.05em', textTransform: 'uppercase' }}>С чем хотите работать?</label>
-        <textarea
-          style={{ ...inputStyle, height: '120px', resize: 'none' }}
-          placeholder="Расскажите немного о вашем запросе…"
-          value={form.message}
-          onChange={e => setForm(f => ({ ...f, message: e.target.value }))}
-        />
-      </div>
-      <button
-        type="submit"
-        style={{
-          marginTop: '4px',
-          padding: '16px',
-          background: 'var(--primary)',
-          color: '#fff',
-          border: 'none',
-          borderRadius: '50px',
-          fontFamily: 'Nunito, sans-serif',
-          fontWeight: 700,
-          fontSize: '16px',
-          cursor: 'pointer',
-          transition: 'opacity 0.2s',
-          letterSpacing: '0.01em',
-        }}
-        onMouseEnter={e => (e.currentTarget.style.opacity = '0.85')}
-        onMouseLeave={e => (e.currentTarget.style.opacity = '1')}
-      >
-        Отправить заявку
-      </button>
-      <p style={{ textAlign: 'center', fontSize: '12px', color: 'var(--muted)', margin: 0 }}>
-        Я не передаю личные данные третьим лицам
-      </p>
-    </form>
-  )
-}
+//   return (
+//     <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+//       <div>
+//         <label style={{ display: 'block', marginBottom: '6px', fontWeight: 600, fontSize: '13px', color: 'var(--muted)', letterSpacing: '0.05em', textTransform: 'uppercase' }}>Имя</label>
+//         <input
+//           style={inputStyle}
+//           placeholder="Ваше имя"
+//           value={form.name}
+//           onChange={e => setForm(f => ({ ...f, name: e.target.value }))}
+//           required
+//         />
+//       </div>
+//       <div>
+//         <label style={{ display: 'block', marginBottom: '6px', fontWeight: 600, fontSize: '13px', color: 'var(--muted)', letterSpacing: '0.05em', textTransform: 'uppercase' }}>Телефон</label>
+//         <input
+//           style={inputStyle}
+//           placeholder="+7 (___) ___-__-__"
+//           value={form.phone}
+//           onChange={e => setForm(f => ({ ...f, phone: e.target.value }))}
+//           required
+//         />
+//       </div>
+//       <div>
+//         <label style={{ display: 'block', marginBottom: '6px', fontWeight: 600, fontSize: '13px', color: 'var(--muted)', letterSpacing: '0.05em', textTransform: 'uppercase' }}>С чем хотите работать?</label>
+//         <textarea
+//           style={{ ...inputStyle, height: '120px', resize: 'none' }}
+//           placeholder="Расскажите немного о вашем запросе…"
+//           value={form.message}
+//           onChange={e => setForm(f => ({ ...f, message: e.target.value }))}
+//         />
+//       </div>
+//       <button
+//         type="submit"
+//         style={{
+//           marginTop: '4px',
+//           padding: '16px',
+//           background: 'var(--primary)',
+//           color: '#fff',
+//           border: 'none',
+//           borderRadius: '50px',
+//           fontFamily: 'Nunito, sans-serif',
+//           fontWeight: 700,
+//           fontSize: '16px',
+//           cursor: 'pointer',
+//           transition: 'opacity 0.2s',
+//           letterSpacing: '0.01em',
+//         }}
+//         onMouseEnter={e => (e.currentTarget.style.opacity = '0.85')}
+//         onMouseLeave={e => (e.currentTarget.style.opacity = '1')}
+//       >
+//         Отправить заявку
+//       </button>
+//       <p style={{ textAlign: 'center', fontSize: '12px', color: 'var(--muted)', margin: 0 }}>
+//         Я не передаю личные данные третьим лицам
+//       </p>
+//     </form>
+//   )
+// }
 
 // Component for reading an article
 function ArticleView({ article, onBack }: { article: typeof articles[0]; onBack: () => void }) {
@@ -949,7 +949,7 @@ export default function App() {
 
         {/* Mobile menu */}
         {menuOpen && (
-          <div style={{ background: 'var(--bg)', borderTop: '1px solid var(--border)', padding: '16px 24px', display: 'flex', flexDirection: 'column', gap: '4px' }}>
+          <div style={{ background: '#E8CFA8', borderTop: '1px solid #E8CFA8', padding: '16px 24px', display: 'flex', flexDirection: 'column', gap: '4px' }}>
             {TABS.map(tab => (
               <button
                 key={tab.id}
@@ -992,7 +992,7 @@ export default function App() {
         {activeTab === 'howIWork' && <HowIWorkSection onBook={() => goTo('book')} />}
         {activeTab === 'contacts' && <ContactsSection />}
         
-        {activeTab === 'book' && <BookSection />}
+        {/* {activeTab === 'book' && <BookSection />} */}
         
       </main>
 
@@ -1468,8 +1468,8 @@ function HowIWorkSection({ onBook }: { onBook: () => void }) {
         flex: '1 1 200px',
         maxWidth: '280px',
         minWidth: '200px',
-        background: 'var(--card)',
-        border: '1px solid var(--border)',
+        background: 'rgb(243, 230, 208)',
+        border: '1px solid rgb(243, 230, 208)',
         borderRadius: 'var(--radius)',
         padding: '32px 28px',
       }}
@@ -1606,34 +1606,79 @@ function ContactsSection() {
                 { day: 'Суббота', time: 'Выходной' },
                 { day: 'Воскресенье', time: 'выходной' },
               ].map(h => (
-                <div key={h.day} style={{ display: 'flex', justifyContent: 'space-between', padding: '10px 0', borderBottom: '1px solid var(--border)', fontSize: '14px' }}>
+                <div key={h.day} style={{ display: 'flex', justifyContent: 'space-between', padding: '10px 0', fontSize: '14px' }}>
                   <span style={{ color: 'var(--muted)' }}>{h.day}</span>
                   <span style={{ fontWeight: 600 }}>{h.time}</span>
                 </div>
               ))}
             </div>
 
-            <div
-              style={{
-                background: 'var(--primary-light)',
-                borderRadius: '12px',
-                padding: '20px',
-                fontSize: '14px',
-                color: 'var(--primary)',
-                lineHeight: 1.6,
-              }}
-            >
-
-            </div>
+            
           </div>
         </div>
       </div>
 
       <style>{`
-        @media (max-width: 768px) {
-          .contacts-grid { grid-template-columns: 1fr !important; }
-        }
-      `}</style>
+  @media (max-width: 768px) {
+    .contacts-grid {
+      grid-template-columns: 1fr !important;
+      gap: 20px !important;
+    }
+
+    .contacts-grid > div {
+      min-width: 0;
+    }
+
+    .contacts-grid a {
+      padding: 18px 20px !important;
+      gap: 16px !important;
+    }
+
+    .contacts-grid a > div:first-child {
+      width: 40px !important;
+      height: 40px !important;
+      font-size: 16px !important;
+    }
+
+    .contacts-grid a > div:last-child {
+      min-width: 0;
+    }
+
+    .contacts-grid a > div:last-child > div:last-child {
+      font-size: 14px !important;
+      overflow-wrap: anywhere;
+    }
+
+    .contacts-grid > div:last-child > div {
+      padding: 20px !important;
+    }
+
+    .contacts-grid iframe {
+      width: 100% !important;
+      height: 300px !important;
+      display: block;
+      border: 0;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .contacts-grid {
+      gap: 16px !important;
+    }
+
+    .contacts-grid a {
+      padding: 16px !important;
+    }
+
+    .contacts-grid > div:last-child > div {
+      padding: 16px !important;
+    }
+
+    .contacts-grid iframe {
+      height: 250px !important;
+    }
+  }
+`}</style>
     </div>
   )
 }
@@ -1732,41 +1777,41 @@ function QuotesSection() {
   );
 }
 
-function BookSection() {
-  return (
-    <div style={{ paddingTop: '60px', maxWidth: '640px', margin: '0 auto' }}>
-      <div style={{ marginBottom: '48px', textAlign: 'center' }}>
-        <h2 style={{ fontFamily: 'Fraunces, serif', fontWeight: 300, fontSize: 'clamp(32px, 4vw, 52px)', margin: '0 0 12px' }}>
-          Записаться
-        </h2>
-        <p style={{ color: 'var(--muted)', fontSize: '16px', lineHeight: 1.7, margin: 0 }}>
-          Заполните форму, и я свяжусь с вами, чтобы подобрать удобное время.
-        </p>
-      </div>
+// function BookSection() {
+//   return (
+//     <div style={{ paddingTop: '60px', maxWidth: '640px', margin: '0 auto' }}>
+//       <div style={{ marginBottom: '48px', textAlign: 'center' }}>
+//         <h2 style={{ fontFamily: 'Fraunces, serif', fontWeight: 300, fontSize: 'clamp(32px, 4vw, 52px)', margin: '0 0 12px' }}>
+//           Записаться
+//         </h2>
+//         <p style={{ color: 'var(--muted)', fontSize: '16px', lineHeight: 1.7, margin: 0 }}>
+//           Заполните форму, и я свяжусь с вами, чтобы подобрать удобное время.
+//         </p>
+//       </div>
 
-      <div
-        style={{
-          background: 'var(--card)',
-          border: '1px solid var(--border)',
-          borderRadius: 'var(--radius)',
-          padding: '48px 40px',
-        }}
-      >
-        <BookingForm />
-      </div>
+//       <div
+//         style={{
+//           background: 'var(--card)',
+//           border: '1px solid var(--border)',
+//           borderRadius: 'var(--radius)',
+//           padding: '48px 40px',
+//         }}
+//       >
+//         <BookingForm />
+//       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '16px', marginTop: '32px' }}>
-        {[
+//       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '16px', marginTop: '32px' }}>
+//         {[
           
-          { icon: '✦', text: 'Ответ в течение 24 часов' },
-          { icon: '⊕', text: 'Конфиденциальность гарантирована' },
-        ].map(f => (
-          <div key={f.text} style={{ textAlign: 'center', padding: '20px 16px', background: 'var(--card)', border: '1px solid var(--border)', borderRadius: '12px' }}>
-            <div style={{ fontSize: '22px', color: 'var(--primary)', marginBottom: '8px' }}>{f.icon}</div>
-            <div style={{ fontSize: '12px', color: 'var(--muted)', lineHeight: 1.5 }}>{f.text}</div>
-          </div>
-        ))}
-      </div>
-    </div>
-  )
-}
+//           { icon: '✦', text: 'Ответ в течение 24 часов' },
+//           { icon: '⊕', text: 'Конфиденциальность гарантирована' },
+//         ].map(f => (
+//           <div key={f.text} style={{ textAlign: 'center', padding: '20px 16px', background: 'var(--card)', border: '1px solid var(--border)', borderRadius: '12px' }}>
+//             <div style={{ fontSize: '22px', color: 'var(--primary)', marginBottom: '8px' }}>{f.icon}</div>
+//             <div style={{ fontSize: '12px', color: 'var(--muted)', lineHeight: 1.5 }}>{f.text}</div>
+//           </div>
+//         ))}
+//       </div>
+//     </div>
+//   )
+// }
