@@ -771,6 +771,9 @@ const quotes = [
 
 // Component for reading an article
 function ArticleView({ article, onBack }: { article: typeof articles[0]; onBack: () => void }) {
+    useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div style={{ paddingTop: '60px', maxWidth: '720px', margin: '0 auto' }}>
       <button
@@ -989,7 +992,7 @@ export default function App() {
         )}
           {activeTab === 'quotes' && <QuotesSection />}
 
-        {activeTab === 'howIWork' && <HowIWorkSection onBook={() => goTo('book')} />}
+        {activeTab === 'howIWork' && <HowIWorkSection  />}
         {activeTab === 'contacts' && <ContactsSection />}
         
         {/* {activeTab === 'book' && <BookSection />} */}
@@ -1334,7 +1337,7 @@ function ArticlesSection({ onReadArticle }: { onReadArticle: (index: number) => 
   )
 }
 
-function HowIWorkSection({ onBook }: { onBook: () => void }) {
+function HowIWorkSection() {
   return (
    <div style={{ 
   paddingTop: '60px', 
@@ -1484,25 +1487,7 @@ function HowIWorkSection({ onBook }: { onBook: () => void }) {
 
   {/* Кнопка */}
   <div style={{ textAlign: 'center' }}>
-    <button
-      onClick={onBook}
-      style={{
-        padding: '18px 48px',
-        borderRadius: '50px',
-        background: 'var(--primary)',
-        color: '#fff',
-        border: 'none',
-        cursor: 'pointer',
-        fontFamily: 'Nunito, sans-serif',
-        fontWeight: 700,
-        fontSize: '16px',
-        transition: 'opacity 0.2s',
-      }}
-      onMouseEnter={e => (e.currentTarget.style.opacity = '0.85')}
-      onMouseLeave={e => (e.currentTarget.style.opacity = '1')}
-    >
-      Записаться на первую сессию
-    </button>
+   
   </div>
 
   <style>{`
