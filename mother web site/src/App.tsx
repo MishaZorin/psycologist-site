@@ -5,7 +5,7 @@ import art1Img from './assets/1220-altaj.jpg'
 
 import art3Img from './assets/image.jpeg'
 import art4Img from './assets/перенос.jpg'
-import art5Img from './assets/ч-б.jpg'
+import art5Img from './assets/Gemini_Generated_Image_oel0juoel0juoel0.jpg'
 
 import art7Img from './assets/bb.jpg'
 import art8Img from './assets/самолет.jpg'
@@ -766,7 +766,15 @@ const quotes = [
 // }
 
 // Component for reading an article
-function ArticleView({ article, onBack }: { article: typeof articles[0]; onBack: () => void }) {
+function ArticleView({
+  article,
+  onBack,
+  onReadArticle,
+}: {
+  article: typeof articles[0]
+  onBack: () => void
+  onReadArticle: (idx: number) => void
+}) {
     useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -827,9 +835,30 @@ function ArticleView({ article, onBack }: { article: typeof articles[0]; onBack:
         {article.excerpt}
       </p> */}
         <img src={article.img} alt="" />
-      <p style={{ fontSize: '15px', lineHeight: 1.8, color: 'var(--muted)', whiteSpace: 'pre-line' }}>
-        {article.text}
-      </p>
+<p style={{ 
+  fontSize: '15px', 
+  lineHeight: 1.8, 
+  color: 'var(--muted)', 
+  whiteSpace: 'pre-line' 
+}}>
+  {article.text.split('(статья «Перенос в жизни и кабинете психоаналитика»)').map((text, index) => (
+    index === 0 ? (
+      <>
+        {text}
+        <span
+          onClick={() => onReadArticle(1)}
+          style={{
+            color: 'var(--primary)',
+            cursor: 'pointer',
+            textDecoration: 'underline'
+          }}
+        >
+          статья «Перенос в жизни и кабинете психоаналитика»
+        </span>
+      </>
+    ) : text
+  ))}
+</p>
     </div>
   )
 }
@@ -979,9 +1008,10 @@ export default function App() {
         {activeTab === 'articles' && (
           selectedArticleIdx !== null ? (
             <ArticleView
-              article={articles[selectedArticleIdx]}
-              onBack={() => setSelectedArticleIdx(null)}
-            />
+  article={articles[selectedArticleIdx]}
+  onBack={() => setSelectedArticleIdx(null)}
+  onReadArticle={(idx: number) => setSelectedArticleIdx(idx)}
+/>
           ) : (
             <ArticlesSection onReadArticle={(idx: number) => setSelectedArticleIdx(idx)} />
           )
@@ -1512,14 +1542,14 @@ function ContactsSection() {
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '32px' }} className="contacts-grid">
         <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
           {[
-            { icon: '✉', label: 'Email', value: 'Elvira.zorina@gmail.com', href: 'Elvira.zorina@gmail.com' },
-            { icon: '✆', label: 'Телефон', value: '+7 911 738 5996', href: '+7 911 738 5996' },
+            { icon: '✉', label: 'Email', value: 'Elvira.zorina@gmail.com',  },
+            { icon: '✆', label: 'Телефон', value: '+7 911 738 5996', },
             // { icon: '◎', label: 'Telegram', value: '@anna_psy', href: '#' },
             // { icon: '⊕', label: 'Instagram', value: '@anna.sokolova.psy', href: '#' },
           ].map(c => (
             <a
               key={c.label}
-              href={c.href}
+              
               style={{
                 display: 'flex',
                 alignItems: 'center',
