@@ -846,7 +846,7 @@ function ArticleView({
       <>
         {text}
         <span
-          onClick={() => onReadArticle(1)}
+          onClick={() => onReadArticle(2)}
           style={{
             color: 'var(--primary)',
             cursor: 'pointer',
