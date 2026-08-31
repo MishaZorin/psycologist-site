@@ -1549,7 +1549,6 @@ function ContactsSection() {
           ].map(c => (
             <a
               key={c.label}
-              
               style={{
                 display: 'flex',
                 alignItems: 'center',
