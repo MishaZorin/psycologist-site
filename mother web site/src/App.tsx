@@ -800,21 +800,7 @@ function ArticleView({
       >
         ← Назад к статьям
       </button>
-      {/* <div
-        style={{
-          padding: '4px 12px',
-          borderRadius: '50px',
-          background: 'var(--primary-light)',
-          color: 'var(--primary)',
-          fontSize: '12px',
-          fontWeight: 700,
-          letterSpacing: '0.04em',
-          display: 'inline-block',
-          marginBottom: '16px',
-        }}
-      >
-        {article.tag}
-      </div> */}
+
       <h1
         style={{
           fontFamily: 'Fraunces, serif',
