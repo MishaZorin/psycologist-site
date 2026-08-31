@@ -800,7 +800,6 @@ function ArticleView({
       >
         ← Назад к статьям
       </button>
-
       <h1
         style={{
           fontFamily: 'Fraunces, serif',
